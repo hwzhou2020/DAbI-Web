@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Single-shot volumetric fluorescence imaging with neural fields">
+  <meta name="keywords" content="fluorescence, single-shot, neural fields, volumetric imaging, SVF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SVF</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <!-- <link rel="stylesheet" href="./static/css/style.css"> -->
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/microscope-solid.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <style>
+    .scale-image {
+      width: 80%;
+      height: 80%;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Digital defocus aberration interference for automated optical microscopy</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://hwzhou2020.github.io/">Haowen Zhou</a><sup>*</sup>,</span>
+            <span class="author-block">
+              <a href="https://biophot.caltech.edu/People">Shi Zhao</a><sup>*</sup>,</span>
+            <span class="author-block">
+              <a href="https://brandonyfeng.github.io">Yujie Fan</a>,</span>
+            <span class="author-block">
+              <a href="https://github.com/MrDongZhenyu">Zhenyu Dong</a>,
+            </span>
+            <span class="author-block">
+              <a href="https://artsci.tamu.edu/physics-astronomy/contact/profiles/oumeng-zhang.html">Oumeng Zhang</a>,
+            </span>
+            <span class="author-block">
+              <a href="https://glab.caltech.edu/">Viviana Gradinaru</a>,
+            </span>
+            <span class="author-block">
+              <a href="https://biophot.caltech.edu/">Changhuei Yang</a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">California Institute of Technology,</span>
+            <span class="author-block"><sup>*</sup>Equal contribution</span>
+          </div>
+          <div class="is-size-4 publication-authors">
+            <span class="author-block">arXiv, 2025</span>
+          </div>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!-- <span class="link-block">
+                <a href="https://doi.org/10.1117/1.AP.7.2.026001"                           
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fa-solid fa-circle-notch fa-rotate-270"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2507.10867"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href=" "
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Presentation</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/hwzhou2020/DAbI"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://osf.io/dvztc/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+              </span>             
+               <!-- Supplementary Link. -->
+              <span class="link-block">
+                <a href=" "
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-solid fa-circle-notch "></i>
+                  </span>
+                  <span>Supplementary (To be released)</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Automation in optical microscopy is critical for enabling high-throughput imaging across a wide range of biomedical applications. 
+            Among the essential components of automated systems, robust autofocusing plays a pivotal role in maintaining image quality for both single-plane and volumetric imaging.
+            However, conventional autofocusing methods often struggle with implementation complexity, limited generalizability across sample types, incompatibility with thick specimens, and slow feedback. 
+            We recently discovered <b> a phenomenon that the digitally summed Fourier spectrum of two images acquired from two-angle illumination exhibits interference-like fringe modulation when the sample is out-of-focus. </b>
+            These digital fringes correlate directly with defocus through a physics-based relation. 
+            Based on this principle, we developed an automatic, efficient, and generalizable defocus detection method termed <b> digital defocus aberration interference (DAbI) </b>. 
+            Implemented with a simple two-LED setup, DAbI can quantify the defocus distance over a range of 212 times the depth-of-field (DoF) for thin samples and 300 times for thick specimens. 
+            It can additionally extend the natural DoF of the imaging system by 20 folds when integrated with complex-field imaging. 
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Intro Video</h2>
+        <div class="content has-text-justified">
+          <p>
+            This video introduces the principle of DAbI in microscopy autofocusing and digital refocusing.
+          </p>
+          <video width="100%" controls>
+            <source src="./static/images/Intro_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+    <!--/ Video. -->
+
+
+    <p>
+      <br>
+    </p>
+    <!-- System. -->
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-justified">
+        <h3 class="title is-4">System Overview</h3>
+      </div>
+      <div class="column is-full-width has-text-centered">
+        <figure>
+          <img src="./static/images/System_setup.jpg" alt="fig_root" class="scale-image">
+          <figcaption class="has-text-justified has-text-grey is-size-6 mt-2">
+            DAbI's two LED illumination configuration reveals interference-like patterns
+            in the digitally summed intensity spectrum.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+    <!--/ System. -->
+
+    <p>
+      <br>
+    </p>
+    <!-- Principle. -->
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-justified">
+        <h3 class="title is-4">Principle of DAbI</h3>
+      </div>
+      <div class="columns is-centered has-text-justified">
+        <div class="column is-full-width">
+            <div class="column is-centered has-text-centered">
+              <img src="./static/images/Principle.jpg" alt="fig_root" class="scale-image">
+            </div>
+            <figcaption class="has-text-justified has-text-grey is-size-6 mt-2">
+              The origin of DAbI fringes from the digital interference of defocus aberration
+              from two illumination angles. 
+            </figcaption>
+      </div>
+    </div>
+    <!--/ Principle. -->
+
+  </div>
+</section>
+
+
+<!-- Autofocusing. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <h2 class="title is-3">DAbI for autofocusing</h2>
+    </div>
+    <p>
+      Autofocusing is a process that when the sample is out-of-focus, the system can automatically move the sample back to focal plane through mechanical actuation.
+    </p>
+    <p>
+      <br>
+    </p>
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <h3 class="title is-4 has-text-left">Graphic illustration of autofocusing</h3>
+        </div>
+      </div>
+      <div class="columns is-centered has-text-justified">
+        <div class="column is-full-width">
+            <div class="column is-centered has-text-centered">
+              <img src="./static/images/Autofocusing.jpg" alt="fig_root" class="scale-image">
+            </div>
+      </div>
+    </div>
+
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <h3 class="title is-4 has-text-left">Example of DAbI for confocal microscopy autofocusing</h3>
+        </div>
+      </div>
+      <div class="columns is-centered has-text-justified">
+        <div class="column is-full-width">
+            <div class="column is-centered has-text-centered">
+              <img src="./static/images/Confocal.jpg" alt="fig_root" class="scale-image">
+            </div>
+      </div>
+    </div>
+
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <h3 class="title is-4 has-text-left">A qualitative comparison of autofocusing methods</h3>
+        </div>
+      </div>
+      <div class="columns is-centered has-text-justified">
+        <div class="column is-full-width">
+            <div class="column is-centered has-text-centered">
+              <img src="./static/images/Comparison.jpg" alt="fig_root" class="scale-image">
+            </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--/ Autofocusing. -->
+
+<!-- Digital Refocusing. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <h2 class="title is-3">DAbI for digital refocusning</h2>
+    </div>
+    <p>
+      Digital refocusing numerically computes an in-focus image from out-of-focus measurements
+      without any mechanical movements. 
+      DAbI can serve as a defocus prior in image reconstructions, thus, 
+      it can significantly extend the digital refocusing capability in complex-field imaging.
+    </p>
+    <p>
+      <br>
+    </p>
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <h3 class="title is-4 has-text-left">Graphic illustration of digital refocusing</h3>
+        </div>
+      </div>
+      <div class="columns is-centered has-text-justified">
+        <div class="column is-full-width">
+            <div class="column is-centered has-text-centered">
+              <img src="./static/images/Digital_refocusing.jpg" alt="fig_root" class="scale-image">
+            </div>
+      </div>
+    </div>
+
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <h3 class="title is-4 has-text-left">Digital refocusing in complex-field imaging</h3>
+        </div>
+      </div>
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-full">
+            <h3 class="title is-4 has-text-left">Digital refocusing in complex-field imaging</h3>
+          </div>
+        </div>
+      
+        <!-- Sliders Wrapper -->
+        <div class="columns is-multiline interpolation-panel">
+          <div class="column is-half has-text-centered">
+            <!-- Slider 1 -->
+            <div class="wrapper slider-1"> 
+              <div class="label-left">Brightfield</div>
+              <div class="label-right">DAbI + APIC</div>       
+              <div class="images">
+                <div class="img-0"></div>
+                <div class="img-1"></div>
+              </div>
+              <div class="slider">
+                <div class="drag-line"><span></span></div>
+                <input type="range" min="0" max="100" value="50">
+              </div>
+            </div>
+          </div>
+      
+          <div class="column is-half has-text-centered">
+            <!-- Slider 2 -->
+            <div class="wrapper slider-2"> 
+              <div class="label-left">APIC</div>
+              <div class="label-right">DAbI + APIC</div>       
+              <div class="images">
+                <div class="img-2"></div>
+                <div class="img-3"></div>
+              </div>
+              <div class="slider">
+                <div class="drag-line"><span></span></div>
+                <input type="range" min="0" max="100" value="50">
+              </div>
+            </div>
+          </div>
+      
+          <div class="column is-half has-text-centered">
+            <!-- Slider 3 -->
+            <div class="wrapper slider-3"> 
+              <div class="label-left">APIC</div>
+              <div class="label-right">DAbI + APIC</div>       
+              <div class="images">
+                <div class="img-4"></div>
+                <div class="img-5"></div>
+              </div>
+              <div class="slider">
+                <div class="drag-line"><span></span></div>
+                <input type="range" min="0" max="100" value="50">
+              </div>
+            </div>
+          </div>
+      
+          <div class="column is-half has-text-centered">
+            <!-- Slider 4 -->
+            <div class="wrapper slider-4"> 
+              <div class="label-left">APIC</div>
+              <div class="label-right">DAbI + APIC</div>       
+              <div class="images">
+                <div class="img-6"></div>
+                <div class="img-7"></div>
+              </div>
+              <div class="slider">
+                <div class="drag-line"><span></span></div>
+                <input type="range" min="0" max="100" value="50">
+              </div>
+            </div>
+          </div>
+        </div>
+      
+        <!-- JavaScript to control all sliders -->
+        <script>
+          function setupSlider(wrapperClass, imgSelector, dragSelector) {
+            const wrapper = document.querySelector(wrapperClass);
+            const slider = wrapper.querySelector("input[type='range']");
+            const img = wrapper.querySelector(imgSelector);
+            const dragLine = wrapper.querySelector(dragSelector);
+      
+            slider.oninput = () => {
+              const value = slider.value;
+              dragLine.style.left = value + "%";
+              img.style.width = value + "%";
+            };
+          }
+      
+          setupSlider(".slider-1", ".img-1", ".drag-line");
+          setupSlider(".slider-2", ".img-3", ".drag-line");
+          setupSlider(".slider-3", ".img-5", ".drag-line");
+          setupSlider(".slider-4", ".img-7", ".drag-line");
+        </script>
+      </div>
+    </div> 
+
+    
+  </div>
+</section>
+<!--/ Digital Refocusing. -->
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h3 class="title">BibTeX</h3>
+    <pre><code>@misc{zhou2025digitaldefocusaberrationinterference,
+      title={Digital defocus aberration interference for automated optical microscopy}, 
+      author={Haowen Zhou and Shi Zhao and Yujie Fan and Zhenyu Dong and Oumeng Zhang and Viviana Gradinaru and Changhuei Yang},
+      year={2025},
+      eprint={2507.10867},
+      archivePrefix={arXiv},
+      primaryClass={physics.optics},
+      url={https://arxiv.org/abs/2507.10867} 
+}</code></pre>
+  </div>
+  <!-- <div class="container is-max-desktop content">
+    <h3 class="title">Dataset DOI</h3>
+    <pre><code>CaltechDATA
+DOI: <a href="https://doi.org/10.22002/7aer7-qhf77">https://doi.org/10.22002/7aer7-qhf77</a></code></pre>
+  </div> -->
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <!-- <a class="icon-link"
+         href="https://opg.optica.org/optica/fulltext.cfm?uri=optica-10-12-1679&id=544513">
+        <i class="fas fa-file-pdf"></i>
+      </a> -->
+      <a class="icon-link" href="https://github.com/hwzhou2020/DAbI-Web" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered" style="font-size: 10px;">
+          <p>
+            Page template from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
