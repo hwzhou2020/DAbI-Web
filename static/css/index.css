@@ -220,47 +220,60 @@ body {
 .wrapper .images{
   height: 100%;
   width: 100%;
-  display: flex;
+  /* display: flex; */
+  position: relative;  /* Needed for absolutely positioned children */
 }
-.img-0 {
+
+.img-0{
   height: 100%;
   width: 100%;
-  background: url("../images/root_128_inr.png") no-repeat;
+  background: url("../images/im_dabi.png") no-repeat;
 }
-.img-1{
-  height: 100%;
-  width: 100%;
-  background: url("../images/root_128_deconv.png") no-repeat;
-}
+
 .img-2 {
   height: 100%;
   width: 100%;
-  background: url("../images/root_189_inr.png") no-repeat;
+  background: url("../images/im_dabi.png") no-repeat;
 }
-.img-3 {
+
+.img-4{
   height: 100%;
   width: 100%;
-  background: url("../images/root_189_deconv.png") no-repeat;
+  background: url("../images/im_dabi_colon.png") no-repeat;
 }
-.img-4 {
-  height: 100%;
-  width: 100%;
-  background: url("../images/root_128_inr.png") no-repeat;
-}
-.img-5{
-  height: 100%;
-  width: 100%;
-  background: url("../images/root_128_deconv.png") no-repeat;
-}
+
 .img-6 {
   height: 100%;
   width: 100%;
-  background: url("../images/root_189_inr.png") no-repeat;
+  background: url("../images/im_dabi_lung.png") no-repeat;
 }
+
+.img-1 {
+  height: 100%;
+  width: 50%;  /* <-- Changed from 100% to 50% */
+  background: url("../images/im_bf.png") no-repeat;
+  background-size: cover;
+}
+
+.img-3 {
+  height: 100%;
+  width: 50%;
+  background: url("../images/im_apic.png") no-repeat;
+  background-size: cover;
+}
+
+.img-5 {
+  height: 100%;
+  width: 50%;
+  background: url("../images/im_apic_colon.png") no-repeat;
+  background-size: cover;
+}
+
 .img-7 {
   height: 100%;
-  width: 100%;
-  background: url("../images/root_189_deconv.png") no-repeat;
+  width: 50%;
+  background: url("../images/im_apic_lung.png") no-repeat;
+  background-size: cover;
 }
 
 .wrapper .slider{
@@ -282,11 +295,11 @@ body {
   -webkit-appearance: none;
   cursor: col-resize;
 }
-.slider .drag-line{
+.slider .drag-line {
   width: 3px;
   height: 500px;
   position: absolute;
-  left: 49.85%;
+  left: 50%; /* <-- Ensure this is 50% for centered drag line */
   pointer-events: none;
 }
 .slider .drag-line::before,

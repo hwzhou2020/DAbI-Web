@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Single-shot volumetric fluorescence imaging with neural fields">
-  <meta name="keywords" content="fluorescence, single-shot, neural fields, volumetric imaging, SVF">
+        content="Digital defocus aberration interference for automated optical microscopy">
+  <meta name="keywords" content="optical microscopy, defocus, automated microscopy, automated optical microscopy, digital refocusing, autofocusing, extended depth of field, optical imaging, DAbI">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SVF</title>
+  <title>DAbI</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -417,20 +417,24 @@
         </div>
       
         <!-- JavaScript to control all sliders -->
+         
         <script>
           function setupSlider(wrapperClass, imgSelector, dragSelector) {
             const wrapper = document.querySelector(wrapperClass);
             const slider = wrapper.querySelector("input[type='range']");
             const img = wrapper.querySelector(imgSelector);
             const dragLine = wrapper.querySelector(dragSelector);
-      
-            slider.oninput = () => {
+
+            const updateSlider = () => {
               const value = slider.value;
               dragLine.style.left = value + "%";
               img.style.width = value + "%";
             };
+
+            slider.oninput = updateSlider;
+            updateSlider();  // ← ensure it sets 50% on load
           }
-      
+
           setupSlider(".slider-1", ".img-1", ".drag-line");
           setupSlider(".slider-2", ".img-3", ".drag-line");
           setupSlider(".slider-3", ".img-5", ".drag-line");
