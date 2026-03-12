@@ -87,20 +87,20 @@
             <span class="author-block"><sup>*</sup>Equal contribution</span>
           </div>
           <div class="is-size-4 publication-authors">
-            <span class="author-block">arXiv, 2025</span>
+            <span class="author-block">Nature Communications (In Press), 2026</span>
           </div>
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
-              <!-- <span class="link-block">
-                <a href="https://doi.org/10.1117/1.AP.7.2.026001"                           
+              <span class="link-block">
+                <a href=""                           
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                     <i class="fa-solid fa-circle-notch fa-rotate-270"></i>
                   </span>
-                  <span>Paper</span>
+                  <span>Paper in Press</span>
                 </a>
-              </span> -->
+              </span>
               <span class="link-block">
                 <a href="https://arxiv.org/abs/2507.10867"
                    class="external-link button is-normal is-rounded is-dark">
@@ -169,13 +169,13 @@
         <div class="content has-text-justified">
           <p>
             Automation in optical microscopy is critical for enabling high-throughput imaging across a wide range of biomedical applications. 
-            Among the essential components of automated systems, robust autofocusing plays a pivotal role in maintaining image quality for both single-plane and volumetric imaging.
+            Among the essential components of automated systems, robust autofocusing plays a pivotal role in maintaining image quality for both single-plane and volumetric imaging. 
             However, conventional autofocusing methods often struggle with implementation complexity, limited generalizability across sample types, incompatibility with thick specimens, and slow feedback. 
-            We recently discovered <b> a phenomenon that the digitally summed Fourier spectrum of two images acquired from two-angle illumination exhibits interference-like fringe modulation when the sample is out-of-focus. </b>
+            <b>We observed that the digitally summed Fourier spectrum of two images acquired from two-angle illumination exhibits interference-like fringe modulation when the sample is defocused.</b>
             These digital fringes correlate directly with defocus through a physics-based relation. 
-            Based on this principle, we developed an automatic, efficient, and generalizable defocus detection method termed <b> digital defocus aberration interference (DAbI)</b>. 
-            Implemented with a simple two-LED setup, DAbI can quantify the defocus distance over a range of 212 times the depth-of-field (DoF) for thin samples and 300 times for thick specimens. 
-            It can additionally extend the natural DoF of the imaging system by 20 folds when integrated with complex-field imaging. 
+            Based on this principle, we developed an automatic, efficient, and generalizable defocus detection method termed <b>digital defocus aberration interference (DAbI)</b>. 
+            Implemented with a simple two-LED setup, DAbI can quantify the defocus distance over a range of 443 times the depth-of-field (DoF) for thin samples and 296 times for thick specimens. 
+            It can additionally extend the natural DoF of the imaging system by 20 fold when integrated with complex-field imaging. We demonstrated the versatile applications of DAbI on brightfield, complex-field, refractive index, confocal, and widefield fluorescence imaging, establishing it as a promising solution for automated, high-throughput optical microscopy.
           </p>
         </div>
       </div>
@@ -215,7 +215,7 @@
       </div>
       <div class="column is-full-width has-text-centered">
         <figure>
-          <img src="./static/images/System_setup.jpg" alt="fig_root" class="scale-image">
+          <img src="./static/images/System.jpg" alt="fig_root" class="scale-image">
           <figcaption class="has-text-justified has-text-grey is-size-6 mt-2">
             DAbI's two LED illumination configuration reveals interference-like patterns
             in the digitally summed intensity spectrum.
@@ -289,10 +289,10 @@
       </div>
     </div>
 
-    <div class="container is-max-desktop">
+    <!-- <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column is-full">
-          <h3 class="title is-4 has-text-left">A qualitative comparison of autofocusing methods</h3>
+          <h3 class="title is-4 has-text-left">Performance of DAbI autofocusing</h3>
         </div>
       </div>
       <div class="columns is-centered has-text-justified">
@@ -301,7 +301,7 @@
               <img src="./static/images/Comparison.jpg" alt="fig_root" class="scale-image">
             </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </section>
 <!--/ Autofocusing. -->
